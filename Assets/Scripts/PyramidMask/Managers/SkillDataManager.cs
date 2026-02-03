@@ -21,14 +21,8 @@ namespace PyramidMask
     
     public class SkillDataManager : MonoBehaviour
     {
-        public static SkillDataManager instance;
         public List<SkillData> skillDataList;
-
-        private void Awake()
-        {
-            if(instance == null) instance = this;
-            else Destroy(gameObject);
-        }
+        public List<SkillData> GetSkillDataList() => skillDataList;
     }
 }
 

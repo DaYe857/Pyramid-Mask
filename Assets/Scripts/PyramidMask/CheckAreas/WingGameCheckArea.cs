@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using PyramidMask;
 using UnityEngine;
 
 public class WingGameCheckArea : MonoBehaviour
@@ -9,7 +10,7 @@ public class WingGameCheckArea : MonoBehaviour
     private GameObject wingGamePanel;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") || other.CompareTag("AnotherPlayer"))
+        if (other.GetComponent<BasePlayerController>())
         {
             Time.timeScale = 1f;
             wingGamePanel.SetActive(true);

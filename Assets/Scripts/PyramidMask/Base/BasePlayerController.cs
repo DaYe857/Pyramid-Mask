@@ -1,84 +1,62 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace PyramidMask
 {
-    public class PlayerController : MonoBehaviour
-    { 
-        [Header("移动设置")]
-        public float moveDistance = 2.0f;      // 每次按键移动的固定距离
-        public float moveSpeed = 5.0f;         // 移动速度（用于平滑移动）
-        public LayerMask obstacleLayer;        // 障碍物图层（在Inspector中设置）
+    /// <summary>
+    /// 玩家角色控制器基类
+    /// </summary>
+    public class BasePlayerController : MonoBehaviour
+{
+    [Header("移动设置")]
+    public float moveDistance = 2.0f;      // 每次按键移动的固定距离
+    public float moveSpeed = 5.0f;         // 移动速度（用于平滑移动）
+    public LayerMask obstacleLayer;        // 障碍物图层（在Inspector中设置）
 
-        public Vector3 targetPosition;        // 目标位置
-        public bool isMoving = false;         // 移动状态标志
-        private Vector3 moveDirection;         // 当前移动方向
+    public Vector3 targetPosition;        // 目标位置
+    public bool isMoving = false;         // 移动状态标志
+    private Vector3 moveDirection;         // 当前移动方向
         
         
-        [SerializeField]
-        private PlayerStateView playerStateView;
-        [SerializeField]
-        private PlayerCheckArea playerCheckArea;
+    [SerializeField]
+    private PlayerStateView playerStateView;
+    [SerializeField]
+    private PlayerCheckArea playerCheckArea;
 
-        [SerializeField] 
-        private GameObject darkCubesPrefab;
-        [SerializeField]
-        private GameObject animalCubesPrefab;
-        public Transform spawnPosition;
-        private bool canMove = true;
-        public bool isBlooded = false;
-        public bool isBandage = false;
+    [SerializeField] 
+    private GameObject darkCubesPrefab;
+    [SerializeField]
+    private GameObject animalCubesPrefab;
+    public Transform spawnPosition;
+    private bool canMove = true;
+    public bool isBlooded = false;
+    public bool isBandage = false;
 
-        public float mosquitoCD = 30f;
-        private Animator anim;
-
-        private void Awake()
+    public float mosquitoCD = 30f;
+    private Animator anim;
+    
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
+    
+    void Update()
+    {
+        if (canMove)
         {
-            anim = GetComponent<Animator>();
+            HandleInput();
+            HandleMovement();
         }
-
-        void Update()
-        {
-            if (canMove)
-            {
-                HandleInput();
-                HandleMovement();
-            }
-        }
-
-        // 处理WASD输入
-        private void HandleInput()
-        {
-            if (isMoving) return; // 如果正在移动，忽略新输入
-
-            Vector3 inputDirection = Vector3.zero;
-            if (isBandage)
-            {
-                float h = Input.GetAxis("Player1Horizontal");
-                float v = Input.GetAxis("Player1Vertical");
-                if (h < 0) inputDirection = -Vector3.left;
-                if (h > 0) inputDirection = -Vector3.right;
-                if(v < 0) inputDirection = -Vector3.back;
-                if (v > 0) inputDirection = -Vector3.forward;
-            }
-            else
-            {
-                float h = Input.GetAxis("Player1Horizontal");
-                float v = Input.GetAxis("Player1Vertical");
-                if (h < 0) inputDirection = Vector3.left;
-                if (h > 0) inputDirection = Vector3.right;
-                if(v < 0) inputDirection = Vector3.back;
-                if (v > 0) inputDirection = Vector3.forward;
-            }
-
-
-            if (inputDirection != Vector3.zero) AttemptMove(inputDirection);
-        }
-
-        // 尝试移动：发射射线检测障碍物
-        private void AttemptMove(Vector3 direction)
+    }
+    
+    /// <summary>
+    /// 抽象行为函数
+    /// </summary>
+    public virtual void HandleInput(){}
+    
+            // 尝试移动：发射射线检测障碍物
+        public void AttemptMove(Vector3 direction)
         {
             // 将方向转换到世界坐标系（考虑物体旋转）
             moveDirection = transform.TransformDirection(direction);
@@ -280,5 +258,5 @@ namespace PyramidMask
                 }
             }
         }
-    }
+}
 }

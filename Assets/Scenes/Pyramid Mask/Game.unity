@@ -10169,10 +10169,10 @@ PrefabInstance:
       addedObject: {fileID: 328092216}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9dab57b8567174448bcd3f6925d0240c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 328092220}
+      addedObject: {fileID: 328092223}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9dab57b8567174448bcd3f6925d0240c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 328092223}
+      addedObject: {fileID: 328092226}
   m_SourcePrefab: {fileID: 100100000, guid: 9dab57b8567174448bcd3f6925d0240c, type: 3}
 --- !u!1 &328092210 stripped
 GameObject:
@@ -10238,21 +10238,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 2
---- !u!114 &328092220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 328092210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cceacbbcddc00cc42a132c021d6ec27a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentSkillType: 0
-  currentSkillImage: {fileID: 1623567708}
-  currentSkillTypes: []
 --- !u!65 &328092223
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10274,6 +10259,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.0508332, y: 2.3371892, z: 2.1078281}
   m_Center: {x: 0.0001784563, y: 0.093245804, z: -0.04145521}
+--- !u!114 &328092226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328092210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aef630454614efd46ae02abcfb63edcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSkillType: 0
+  currentSkillImage: {fileID: 1623567708}
+  currentSkillTypes: []
+  skillDataManager: {fileID: 267839249}
 --- !u!1001 &329493923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33469,10 +33470,10 @@ PrefabInstance:
       addedObject: {fileID: 1171815046}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2ada84a2d7db7654ca52feb122f686af, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1171815049}
+      addedObject: {fileID: 1171815052}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2ada84a2d7db7654ca52feb122f686af, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1171815052}
+      addedObject: {fileID: 1171815055}
   m_SourcePrefab: {fileID: 100100000, guid: 2ada84a2d7db7654ca52feb122f686af, type: 3}
 --- !u!1 &1171815042 stripped
 GameObject:
@@ -33533,21 +33534,6 @@ MonoBehaviour:
   isBlooded: 0
   isBandage: 0
   mosquitoCD: 30
---- !u!114 &1171815049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1171815042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cceacbbcddc00cc42a132c021d6ec27a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentSkillType: 0
-  currentSkillImage: {fileID: 630551036}
-  currentSkillTypes: []
 --- !u!65 &1171815052
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33569,6 +33555,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.0508332, y: 2.3371892, z: 2.1078281}
   m_Center: {x: 0.0001784563, y: 0.093245804, z: -0.04145521}
+--- !u!114 &1171815055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171815042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4768ab5c8f12e444b8fbd4dbaae4e71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSkillType: 0
+  currentSkillImage: {fileID: 630551036}
+  currentSkillTypes: []
+  skillDataManager: {fileID: 267839249}
 --- !u!1001 &1175232884
 PrefabInstance:
   m_ObjectHideFlags: 0

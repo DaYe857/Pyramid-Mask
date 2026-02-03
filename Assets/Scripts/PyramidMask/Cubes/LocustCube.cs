@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 namespace PyramidMask
 {
-    public class LocustCube : Cube
+    public class LocustCube : BaseCube
     {
         [SerializeField] 
         private List<GameObject> locustCubeTypes;

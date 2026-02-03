@@ -15,12 +15,11 @@ public class PlayerCheckArea : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Cube>())
+        if (other.GetComponent<BaseCube>())
         {
             checkAreaObj.Add(other.gameObject);
             Debug.Log(other.gameObject.name);
         }
-
     }
 
     private void OnTriggerExit(Collider other)

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace PyramidMask
 {
-    public class FlyCube : Cube
+    public class FlyCube : BaseCube
     {
         [SerializeField] 
         private List<Transform> flyPoints;
@@ -41,14 +41,20 @@ namespace PyramidMask
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player"))
+            if (other.GetComponent<BasePlayerController>() != null)
             {
-                other.GetComponent<PlayerController>().GetFlyCubeHurt();
-                ReleaseFlyCube();
-            }
-            if (other.CompareTag("AnotherPlayer"))
-            {
-                other.GetComponent<AnotherPlayerController>().GetFlyCubeHurt();
+                BasePlayerController player = other.GetComponent<BasePlayerController>();
+                if (player is PlayerController)
+                {
+                    PlayerController playerController = player as PlayerController;
+                    playerController.GetFlyCubeHurt();
+                }
+                if (player is AnotherPlayerController)
+                {
+                    AnotherPlayerController playerController = player as AnotherPlayerController;
+                    playerController.GetFlyCubeHurt();
+                }
+                
                 ReleaseFlyCube();
             }
         }

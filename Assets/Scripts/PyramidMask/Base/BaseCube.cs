@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace PyramidMask
 {
-    public class Cube : MonoBehaviour
+    public class BaseCube : MonoBehaviour
     {
     }
 }

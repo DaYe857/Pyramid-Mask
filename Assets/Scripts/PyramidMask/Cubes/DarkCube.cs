@@ -4,9 +4,8 @@ using UnityEngine;
 
 namespace PyramidMask
 {
-    public class PlantCube : Cube
+    public class DarkCube : BaseCube
     {
-        
+    
     }
 }
-

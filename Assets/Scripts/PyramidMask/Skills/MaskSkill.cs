@@ -12,9 +12,9 @@ namespace PyramidMask
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player") || other.CompareTag("AnotherPlayer"))
+            if (other.GetComponent<BasePlayerController>())
             {
-                other.GetComponent<SkillContainer>().SetSkillTrue(skillType);
+                other.GetComponent<BaseSkillContainer>().SetSkillTrue(skillType);
                 gameObject.SetActive(false);
             }
         }
